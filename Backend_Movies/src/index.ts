@@ -2,18 +2,18 @@ import express , {Request,Response, Router} from 'express' ;
 import cors from 'cors' ;
 import "dotenv/config" ;
 import mongoose from 'mongoose'
+import users_routes from './routs/user.routes'
+import auth_routes from './routs/auth.routes'
 
 const app = express()
-const PORT = 3000
+const PORT = 3500
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
-import add_users_route from './routs/user.routes'
 
-app.use('/api/users',add_users_route)
-
-
+app.use('/api/users',users_routes)
+app.use('/api/auth',auth_routes)
 
 
 

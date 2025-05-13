@@ -1,12 +1,11 @@
 import express , {Request,Response, Router} from 'express' ;
-
+import {add_user,delet_user} from '../controllers/user_controllers'
 
 
 
 const router = Router()
+router.post('/register', add_user)
+router.post('/delete_user',delet_user)
 
-router.get('/add_user', async (req:Request,res:Response) => {
-    res.json({message:"goood work"})
-})
 export default  router
 
